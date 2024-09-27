@@ -1,0 +1,21 @@
+query GetVideoShorts {
+  videos(
+    where: {
+      isShort_eq: true
+      isPublic_eq: true
+      media: { isAccepted_eq: true }
+    }
+    orderBy: [createdAt_DESC]
+    limit: 15
+  ) {
+    id
+    title
+    description
+    channel {
+      title
+    }
+    media {
+      id
+    }
+  }
+}
